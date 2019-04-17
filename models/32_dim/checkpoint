@@ -1,0 +1,2 @@
+model_checkpoint_path: "lr_0.001_batchSize_256_outDim_32_867593_33_08_49_17_04_2019_trainedModel_Iteration_9.ckpt"
+all_model_checkpoint_paths: "lr_0.001_batchSize_256_outDim_32_867593_33_08_49_17_04_2019_trainedModel_Iteration_9.ckpt"
