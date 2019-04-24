@@ -94,14 +94,26 @@ after installing and compiling the necessary source code. It will compute the SD
 ![3DSMoothNet](figures/demo.png?raw=true)
 
 ## Data
-### 3DMatch training data
+### Training data
 We currently provide only a small example of the training data needed to build the graph, but the whole data set will be provided in the following days.
+
+### Evaluation data sets
+#### 3DMatch
+The pointclouds and indices of the interest points for the *3DMatch* data set can be downloaded from [here (0.27GB)](https://share.phys.ethz.ch/~gsg/3DSmoothNet/data/3DMatch.rar)
+#### 3DSparseMatch
+The pointclouds and indices of the interest points for the *3DSparseMatch* data set can be downloaded from [here (0.83GB)](https://share.phys.ethz.ch/~gsg/3DSmoothNet/data/3DSparseMatch.rar)
+#### ETH
+The pointclouds and indices of the interest points for the *ETH* data set can be downloaded from [here (0.11GB)](https://share.phys.ethz.ch/~gsg/3DSmoothNet/data/ETH.rar)
+
+### Pretrained model
+
+The pretrained model of the 3DSmoothNet with 128 dim can be downloaded from [here (0.10GB)](https://share.phys.ethz.ch/~gsg/3DSmoothNet/models/128_dim/3DSmoothNet_model_128_dim.rar)
+
+To use this model please unpack the archive to `./models/128_dim/`. 
 
 
 ## TO DO!!
-- Upload the data of the 3DRotated and 3DSparseMatch
 - Upload the files used for evaluation
-- Add link to the training data and the pretrained model for 128-dim
 - Add source code of the descriptors used as baseline
 
 
