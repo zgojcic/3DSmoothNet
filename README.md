@@ -95,14 +95,17 @@ after installing and compiling the necessary source code. It will compute the SD
 
 ## Data
 ### Training data
+Training data created using the RGB-D data from 3DMatch data set can be downloaded from [here (145GB)](https://share.phys.ethz.ch/~gsg/3DSmoothNet/training_data/trainingData.rar).
+It consists of a `*.tfreford` file for each scene, due to the size of the data several scenes are split into more `*.tfreford` files (329 files all together). In order to train the model using this data replace the `sample_training_file.tfrecord` file in `./data/train/trainingData3DMatch/` with the files from this archive. When run in train mode the source code will automatically read all the files from the selected folder.  
+ 
 We currently provide only a small example of the training data needed to build the graph, but the whole data set will be provided in the following days.
 
 ### Evaluation data sets
-#### 3DMatch
+##### 3DMatch
 The pointclouds and indices of the interest points for the *3DMatch* data set can be downloaded from [here (0.27GB)](https://share.phys.ethz.ch/~gsg/3DSmoothNet/data/3DMatch.rar)
-#### 3DSparseMatch
+##### 3DSparseMatch
 The pointclouds and indices of the interest points for the *3DSparseMatch* data set can be downloaded from [here (0.83GB)](https://share.phys.ethz.ch/~gsg/3DSmoothNet/data/3DSparseMatch.rar)
-#### ETH
+##### ETH
 The pointclouds and indices of the interest points for the *ETH* data set can be downloaded from [here (0.11GB)](https://share.phys.ethz.ch/~gsg/3DSmoothNet/data/ETH.rar)
 
 ### Pretrained model
