@@ -82,6 +82,12 @@ python ./main_cnn.py --run_mode=train --output_dim=32 --batch_size=256
 ```
 to train a 32 dimensional 3DSmoothNet with mini-batch size 256. By defult, the training data saved in `data\train\trainingData3DMatch\` wil be used and the tensorboard log will be saved in `./logs/`. For more training options please see `./core/config.py`. 
 
+### Evaluation
+The source-code for the performance evaluation on the 3DMatch data set is available in the `./evaluation/`.
+
+In order to compute the recall, first run the `correspondenceMatching.m` and then the `evaluate3DMatchDataset.m`.
+
+With small changes of the point cloud names and paths, the code can also be used to evaluate the performance on the ETH data set.
 
 ## Demo
 
@@ -125,7 +131,6 @@ To use this model please unpack the archive to `./models/128_dim/`.
 
 
 ## TO DO!!
-- Upload the files used for evaluation
 - Add source code of the descriptors used as baseline
 
 
