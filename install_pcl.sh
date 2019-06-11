@@ -3,7 +3,8 @@ sudo apt-get update
 sudo apt-get install git
 
 cd ~/Documents
-# git clone --branch pcl-1.8.1 https://github.com/PointCloudLibrary/pcl.git pcl-trunk
+# for clone pcl-1.8.1
+# git clone --branch pcl-1.8.1 https://github.com/PointCloudLibrary/pcl.git pcl-trunk 
 git clone https://github.com/PointCloudLibrary/pcl.git pcl-trunk
 ln -s pcl-trunk pcl
 cd pcl
