@@ -20,11 +20,11 @@ of outdoor vegetation, more than double the performance of our closest, learning
 If you find this code useful for your work or use it in your project, please consider citing:
 
 ```shell
-@inproceedings{gojcic20193DSmoothNet, 
-	title={The Perfect Match: 3D Point Cloud Matching with Smoothed Densities}, 
-	author={Gojcic, Zan and Zhou, Caifa and Wegner, Jan Dirk and Wieser Andreas}, 
-	booktitle={International conference on computer vision and pattern recognition (CVPR)}, 
-	year={2019} 
+@inproceedings{gojcic20193DSmoothNet,
+	title={The Perfect Match: 3D Point Cloud Matching with Smoothed Densities},
+	author={Gojcic, Zan and Zhou, Caifa and Wegner, Jan Dirk and Wieser Andreas},
+	booktitle={International conference on computer vision and pattern recognition (CVPR)},
+	year={2019}
 }
 ```
 
@@ -33,7 +33,7 @@ If you have any questions or find any bugs, please let us know: Zan Gojcic, Caif
 
 ## Instructions
 ### Dependencies
-The pipeline of 3DSmoothNet consits of two steps: 
+The pipeline of 3DSmoothNet consits of two steps:
 
 1. `main.cpp`: computes the smoothed density value (SDV) voxel grid for a point cloud provided in the .ply format.
 
@@ -80,7 +80,7 @@ The provided code can also be used to train 3DSmoothNet from scratch using e.g.:
 ```
 python ./main_cnn.py --run_mode=train --output_dim=32 --batch_size=256
 ```
-to train a 32 dimensional 3DSmoothNet with mini-batch size 256. By defult, the training data saved in `data\train\trainingData3DMatch\` wil be used and the tensorboard log will be saved in `./logs/`. For more training options please see `./core/config.py`. 
+to train a 32 dimensional 3DSmoothNet with mini-batch size 256. By defult, the training data saved in `data\train\trainingData3DMatch\` wil be used and the tensorboard log will be saved in `./logs/`. For more training options please see `./core/config.py`.
 
 ### Evaluation
 The source-code for the performance evaluation on the 3DMatch data set is available in the `./evaluation/`.
@@ -89,9 +89,15 @@ In order to compute the recall, first run the `correspondenceMatching.m` and the
 
 With small changes of the point cloud names and paths, the code can also be used to evaluate the performance on the ETH data set.
 
+## Generation of training data
+- Prepare the dataset (as `.ply` format): collect your own point clouds (for *fine-tuning*) or download the benchmark dataset (e.g. [*3DMatch*](http://3dmatch.cs.princeton.edu/))
+- Perform the **Input parametrization** using the [`main.cpp`](./main.cpp)
+- Save the SDVs into `tfrecord` using [`saveDataToTFrecordsExample.py`](https://github.com/zgojcic/3DSmoothNet/blob/master/core/saveDataToTFrecordsExample.py).
+- Train the model
+
 ## Demo
 
-We prepared a small demo which demonstrates the whole pipeline using two fragments from the 3DMatch dataset. To carry out the demo, please run 
+We prepared a small demo which demonstrates the whole pipeline using two fragments from the 3DMatch dataset. To carry out the demo, please run
 ```
 python ./demo.py
 ```
@@ -102,8 +108,8 @@ after installing and compiling the necessary source code. It will compute the SD
 ## Data
 ### Training data
 Training data created using the RGB-D data from 3DMatch data set can be downloaded from [here (145GB)](https://share.phys.ethz.ch/~gsg/3DSmoothNet/training_data/trainingData.rar).
-It consists of a `*.tfreford` file for each scene, due to the size of the data several scenes are split into more `*.tfreford` files (329 files all together). In order to train the model using this data replace the `sample_training_file.tfrecord` file in `./data/train/trainingData3DMatch/` with the files from this archive. When run in train mode the source code will automatically read all the files from the selected folder.  
- 
+It consists of a `*.tfreford` file for each scene, due to the size of the data several scenes are split into more `*.tfreford` files (329 files all together). In order to train the model using this data replace the `sample_training_file.tfrecord` file in `./data/train/trainingData3DMatch/` with the files from this archive. When run in train mode the source code will automatically read all the files from the selected folder.
+
 If you use these data please consider also citing the authors of the data set [3DMatch](http://3dmatch.cs.princeton.edu/).
 
 ### Evaluation data sets
@@ -127,7 +133,7 @@ If you use these data please consider also citing the authors of the original da
 
 The pretrained model of the 3DSmoothNet with 128 dim can be downloaded from [here (0.10GB)](https://share.phys.ethz.ch/~gsg/3DSmoothNet/models/128_dim/3DSmoothNet_model_128_dim.rar)
 
-To use this model please unpack the archive to `./models/128_dim/`. 
+To use this model please unpack the archive to `./models/128_dim/`.
 
 
 ## TO DO!!
