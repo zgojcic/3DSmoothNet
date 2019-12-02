@@ -15,6 +15,8 @@ of outdoor vegetation, more than double the performance of our closest, learning
 
 ![3DSMoothNet](figures/Network.jpg?raw=true)
 
+`!` **Update**: We have submitted a revised version of the paper to Arxiv for correcting the typo.
+
 ### Citation
 
 If you find this code useful for your work or use it in your project, please consider citing:
@@ -90,11 +92,20 @@ In order to compute the recall, first run the `correspondenceMatching.m` and the
 With small changes of the point cloud names and paths, the code can also be used to evaluate the performance on the ETH data set.
 
 ## Generation of training data
-- Prepare the dataset (as `.ply` format): collect your own point clouds (for *fine-tuning*) or download the benchmark dataset (e.g. [*3DMatch*](http://3dmatch.cs.princeton.edu/))
-- Perform the **Input parametrization** using the [`main.cpp`](./main.cpp)
-- Save the SDVs into `tfrecord` using [`saveDataToTFrecordsExample.py`](https://github.com/zgojcic/3DSmoothNet/blob/master/core/saveDataToTFrecordsExample.py).
-- Train the model
-
+- Procedures
+	- Prepare the dataset (as `.ply` format): collect your own point clouds (for *fine-tuning*) or download the benchmark dataset (e.g. [*3DMatch*](http://3dmatch.cs.princeton.edu/))
+	- Perform the **Input parametrization** using the [`main.cpp`](./main.cpp)
+	- Save the SDVs into `tfrecord` using [`saveDataToTFrecordsExample.py`](https://github.com/zgojcic/3DSmoothNet/blob/master/core/saveDataToTFrecordsExample.py).
+	- Train the model e.g., using
+	```
+	python ./main_cnn.py --run_mode=train --output_dim=32 --batch_size=256
+	```
+	for ouputing a 32-dim features
+- Generate training using [`3dmatch`](http://3dmatch.cs.princeton.edu/)
+	- Extract point clouds (`.ply`) from RGB-D images according using [3dmatch-toolbox](https://github.com/andyzeng/3dmatch-toolbox)
+	- Sample positive tuples: for each pair of training fragments (e.g., $F_i$ and $F_j$) which has more than 30% overlap (This is given in `3DMatch` dataset), arbitrarily sample 300 points wihtin the overlap region from $F_i$ and found their nearest neighbors in the transformed $F_j$. Positive tuples defined as those whose the distance between the nearest neighbor less than 1.5 times of the average resolution of `3DMatch` dataset (can be retrieved from `3dmatch-toolbox`)
+	- Compute the SDV for those sampled points
+	- Save the SDVs into `tfrecord`
 ## Demo
 
 We prepared a small demo which demonstrates the whole pipeline using two fragments from the 3DMatch dataset. To carry out the demo, please run
