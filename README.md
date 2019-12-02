@@ -103,7 +103,7 @@ With small changes of the point cloud names and paths, the code can also be used
 	for ouputing a 32-dim features
 - Generate training using [`3dmatch`](http://3dmatch.cs.princeton.edu/)
 	- Extract point clouds (`.ply`) from RGB-D images according using [3dmatch-toolbox](https://github.com/andyzeng/3dmatch-toolbox)
-	- Sample positive tuples: for each pair of training fragments (e.g., $F_i$ and $F_j$) which has more than 30% overlap (This is given in `3DMatch` dataset), arbitrarily sample 300 points wihtin the overlap region from $F_i$ and found their nearest neighbors in the transformed $F_j$. Positive tuples defined as those whose the distance between the nearest neighbor less than 1.5 times of the average resolution of `3DMatch` dataset (can be retrieved from `3dmatch-toolbox`)
+	- Sample positive tuples: for each pair of training fragments (e.g., $F_i$ and $F_j$) which has more than 30% overlap (This is given in `3DMatch` dataset), arbitrarily sample 300 points wihtin the overlap region from $F_i$ and found their nearest neighbors in the transformed $F_j$. Positive tuples defined as those whose the distance between the nearest neighbor less than the average resolution (around 6 mm) of `3DMatch` dataset (can be retrieved from `3dmatch-toolbox`.)
 	- Compute the SDV for those sampled point pairs and format the SDVs of each pair into one row vector. I.e. each row is one training example.
 	- Save the SDVs into `tfrecord`
 ## Demo
