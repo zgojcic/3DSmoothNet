@@ -4,5 +4,5 @@ open3d-python
 parse==1.12.0
 scikit-learn==0.20.3
 tensorboard==1.10
-tensorflow-gpu==1.10
+tensorflow-gpu==2.3.1
 tqdm==4.31.1
