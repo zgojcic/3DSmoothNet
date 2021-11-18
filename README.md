@@ -52,6 +52,7 @@ pip install -r requirements.txt
 ```
 in a new virtual environment.
 
+To get the correct cuda and cudnn version you can also use the following docker: ```nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04```
 ### Input parametrization
 
 We provide a cmake file that can be used to compile `main.cpp` as:
